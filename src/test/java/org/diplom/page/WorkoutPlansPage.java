@@ -5,25 +5,27 @@ import org.openqa.selenium.support.FindBy;
 
 public class WorkoutPlansPage extends BasePage {
 
-    @FindBy(xpath = "///tbody/tr[1]/td[4]/input[1]")
+    @FindBy(xpath = "//tbody/tr[1]/td[4]/input[1]")
     private WebElement routineNameCheckbox;
 
-    @FindBy (xpath = "//div[text()='2']")
-    private WebElement pageNumberButton;
+    @FindBy (xpath = "//a[contains(text(), 'Blog')]")
+    private WebElement blogButton;
 
-    public WorkoutPlansPage checkboxVerify() {
-        routineNameCheckbox.isSelected();
-        return this;
+    public boolean checkboxVerify() {
+        return routineNameCheckbox.isSelected();
     }
 
     public WorkoutPlansPage clickOnPageNumberButton() {
-        pageNumberButton.click();
+        blogButton.click();
         return this;
     }
 
     public WorkoutPlansPage openPage(String url) {
         driver.get(url);
         return this;
+    }
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
     }
 
 }

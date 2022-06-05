@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Test" verbose="1">
-    <test name="LoginPageTest">
+    <test name="JefitTest">
         <classes>
-            <class name="org.diplom.test.LoginPageTest"></class>
-            <class name="org.diplom.test.LoginInvalidPageTest"></class>
-            <class name="org.diplom.test.MyJefitPageTest"></class>
-            <class name="org.diplom.test.WorkoutPlansPageTest"></class>
-
+            <class name="org.diplom.test.LoginPageTest"/>
+            <class name="org.diplom.test.LoginInvalidPageTest"/>
+            <class name="org.diplom.test.MyJefitPageTest"/>
+            <class name="org.diplom.test.WorkoutPlansPageTest"/>
+            <class name="org.diplom.test.CoachPageTest"/>
         </classes>
     </test>
 </suite>

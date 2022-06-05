@@ -19,5 +19,3 @@ public class BaseTest {
             DriverSingleton.closeDriver();
         }
     }
-
-

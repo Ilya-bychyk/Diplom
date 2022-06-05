@@ -6,13 +6,12 @@ import org.diplom.page.MyJefitPage;
 
 public class LoginInvalidPageService {
     private static final String LOGIN_PAGE_URL = "https://www.jefit.com/login/";
-    private LoginPage loginPage = new LoginPage();
-    private UserInvalid userInvalid = new UserInvalid();
+    private final LoginPage loginPage = new LoginPage();
 
     public MyJefitPage loginInvalid() {
         loginPage.openPage(LOGIN_PAGE_URL)
-                .fillInUsername(userInvalid.getName())
-                .fillPassword(userInvalid.getPassword())
+                .fillInUsername(UserInvalid.name)
+                .fillPassword(UserInvalid.password)
                 .clickCheckbox()
                 .clickLoginButton();
         return new MyJefitPage();
