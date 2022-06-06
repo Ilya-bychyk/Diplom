@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class WorkoutPlansPageTest extends BaseTest {
 
     private LoginPageService loginPageService;
@@ -25,7 +27,7 @@ public class WorkoutPlansPageTest extends BaseTest {
     public void RoutineNameCheckboxTest() {
         loginPageService.login();
         WorkoutPlansPage workoutPlansPage = workoutPlansPageService.openWorkoutPage();
-        new WebDriverWait(driver, 20).until(ExpectedConditions.urlContains("routines"));
+        new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("routines"));
         boolean isCheckboxSelected = workoutPlansPage.checkboxVerify();
         Assert.assertTrue(isCheckboxSelected, "Checkbox is not selected!");
     }
@@ -33,7 +35,7 @@ public class WorkoutPlansPageTest extends BaseTest {
     @Test(priority = 2)
     public void BlogPageButtonTest() {
         WorkoutPlansPage workoutPlansPage = workoutPlansPageService.openWorkoutPage();
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Create A Plan')]")));
+        new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Create A Plan')]")));
         workoutPlansPage.clickOnPageNumberButton();
         String actualSecondPageUrl = workoutPlansPage.getCurrentUrl();
         String expectedSecondPageUrl = "https://www.jefit.com/blog";

@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage fillInUsername(String userName) {
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(username));
+        //new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(username));
         username.clear();
         username.sendKeys(userName);
         return this;

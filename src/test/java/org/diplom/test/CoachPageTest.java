@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class CoachPageTest extends BaseTest {
 
     private LoginPageService loginPageService;
@@ -25,9 +27,9 @@ public class CoachPageTest extends BaseTest {
     public void FreeTrialTest() {
         loginPageService.login();
         CoachPage coachPage = coachPageService.openCoachPage();
-        new WebDriverWait(driver, 20).until(ExpectedConditions.urlContains("coach"));
+        new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("coach"));
         coachPage.clickOnFreeTrialButton();
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='submit-btn']")));
+        new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='submit-btn']")));
         String actualCoachPageUrl = coachPage.getCurrentUrl();
         String expectedCoachPageUrl = "https://www.jefit.com/elite/checkout.php?coach";
         Assert.assertEquals(actualCoachPageUrl, expectedCoachPageUrl, "You didn't reach right page!");
