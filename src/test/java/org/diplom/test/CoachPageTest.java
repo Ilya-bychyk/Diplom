@@ -3,6 +3,7 @@ package org.diplom.test;
 import org.diplom.page.CoachPage;
 import org.diplom.service.CoachPageService;
 import org.diplom.service.LoginPageService;
+import org.diplom.utils.Retry;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,9 +24,11 @@ public class CoachPageTest extends BaseTest {
         coachPageService = new CoachPageService();
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void FreeTrialTest() {
-        loginPageService.login();
+        if (!loginPageService.isLogged()) {
+            loginPageService.login();
+        }
         CoachPage coachPage = coachPageService.openCoachPage();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("coach"));
         coachPage.clickOnFreeTrialButton();
