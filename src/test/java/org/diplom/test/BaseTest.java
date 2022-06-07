@@ -1,21 +1,21 @@
 package org.diplom.test;
 
+import org.diplom.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.diplom.driver.DriverSingleton;
 
 public class BaseTest {
 
-        protected WebDriver driver;
+    protected WebDriver driver;
 
-        @BeforeClass
-        public void setUp() {
-            driver = DriverSingleton.getDriver();
-        }
-
-        @AfterClass
-        public void stopBrowser() {
-            DriverSingleton.closeDriver();
-        }
+    @BeforeClass
+    public void startBrowser() {
+        driver = DriverSingleton.getInstance().getDriver();
     }
+
+    @AfterClass(alwaysRun = true)
+    public void stopBrowser() {
+        DriverSingleton.getInstance().closeDriver();
+    }
+}

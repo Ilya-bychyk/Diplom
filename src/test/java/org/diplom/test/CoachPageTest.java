@@ -31,7 +31,7 @@ public class CoachPageTest extends BaseTest {
         coachPage.clickOnFreeTrialButton();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='submit-btn']")));
         String actualCoachPageUrl = coachPage.getCurrentUrl();
-        String expectedCoachPageUrl = "https://www.jefit.com/elite/checkout.php?coach";
+        String expectedCoachPageUrl = "https://www.jefit.com/elite/checkout.php?";
         Assert.assertEquals(actualCoachPageUrl, expectedCoachPageUrl, "You didn't reach right page!");
     }
 }

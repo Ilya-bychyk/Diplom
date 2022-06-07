@@ -1,13 +1,30 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke" parallel="tests" thread-count="3">
 
-<suite name="Test" verbose="1">
-    <test name="JefitTest">
+    <test name="LoginPageTest">
         <classes>
             <class name="org.diplom.test.LoginPageTest"/>
-            <class name="org.diplom.test.LoginInvalidPageTest"/>
-            <class name="org.diplom.test.MyJefitPageTest"/>
-            <class name="org.diplom.test.WorkoutPlansPageTest"/>
-            <class name="org.diplom.test.CoachPageTest"/>
         </classes>
+    </test>
+    <test name="LoginInvalidPageTest">
+        <classes>
+            <class name="org.diplom.test.LoginInvalidPageTest"/>
+        </classes>
+    </test>
+    <test name="MyJefitPageTest">
+        <classes>
+            <class name="org.diplom.test.MyJefitPageTest"/>
+        </classes>
+    </test>
+    <test name="WorkoutPageTest">
+        <classes>
+            <class name="org.diplom.test.WorkoutPlansPageTest"/>
+        </classes>
+    </test>
+    <test name="CoachPageTest">
+    <classes>
+        <class name="org.diplom.test.CoachPageTest"/>
+    </classes>
     </test>
 </suite>

@@ -41,5 +41,4 @@ public class WorkoutPlansPageTest extends BaseTest {
         String expectedSecondPageUrl = "https://www.jefit.com/blog";
         Assert.assertEquals(actualSecondPageUrl, expectedSecondPageUrl, "You didn't reach right page!");
     }
-
 }

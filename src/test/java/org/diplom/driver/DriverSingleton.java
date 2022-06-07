@@ -1,36 +1,34 @@
 package org.diplom.driver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverSingleton {
 
-    private static WebDriver driver;
+    private static final ThreadLocal<DriverSingleton> instance = new ThreadLocal<>();
+
+    private WebDriver driver;
 
     private DriverSingleton() {
+        driver = WebDriverFactory.getWebDriver();
     }
-    public static WebDriver getDriver() {
-        if (null == driver) {
-            switch (System.getProperty("browser", "chrome")) {
-                case "firefox": {
-                    WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    break;
-                }
-                default: {
-                    WebDriverManager.chromiumdriver().setup();
-                    driver = new ChromeDriver();
-                }
-            }
-            driver.manage().window().maximize();
+
+    public static synchronized DriverSingleton getInstance() {
+        if (instance.get() == null) {
+            instance.set(new DriverSingleton());
         }
+        return instance.get();
+    }
+
+    public WebDriver getDriver() {
         return driver;
     }
-    public static void closeDriver() {
-        driver.quit();
-        driver = null;
+
+    public void closeDriver() {
+        try {
+            driver.quit();
+            driver = null;
+        } finally {
+            instance.remove();
+        }
     }
 }
