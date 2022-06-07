@@ -10,6 +10,8 @@ public class LoginPageService {
     private static final String LOGIN_PAGE_URL = "https://www.jefit.com/login/";
     private final LoginPage loginPage = new LoginPage();
 
+    private boolean isLogged = false;
+
     public MyJefitPage login() {
         log.info("Fill in all fields on the Login Page");
         loginPage.openPage(LOGIN_PAGE_URL)
@@ -17,8 +19,12 @@ public class LoginPageService {
                 .fillPassword(User.password)
                 .clickCheckbox()
                 .clickLoginButton();
+        isLogged = true;
         return new MyJefitPage();
+    }
 
+    public boolean isLogged() {
+        return isLogged;
     }
 
 }
