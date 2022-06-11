@@ -26,9 +26,9 @@ public class CoachPageTest extends BaseTest {
 
     @Test(retryAnalyzer = Retry.class)
     public void FreeTrialTest() {
-        if (!loginPageService.isLogged()) {
-            loginPageService.login();
-        }
+        //if (!loginPageService.isLogged()) {
+         loginPageService.login();
+      //  }
         CoachPage coachPage = coachPageService.openCoachPage();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("coach"));
         coachPage.clickOnFreeTrialButton();
