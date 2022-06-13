@@ -1,5 +1,7 @@
 package org.diplom.test;
 
+import org.diplom.entities.Entity;
+import org.diplom.model.User;
 import org.diplom.page.MyJefitPage;
 import org.diplom.service.LoginPageService;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,7 +43,8 @@ public class MyJefitPageTest extends BaseTest {
 
     @Test (priority = 1)
         public void MyLogsTest() {
-        myJefitPage = loginPageService.login();
+        User name = Entity.getUserValid();
+        myJefitPage = loginPageService.login(name.getName(), name.getPassword());
         myJefitPage.clickMyLogsButton();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("my-logs"));
         String actualUrlOfMyLogs = myJefitPage.getCurrentUrl();

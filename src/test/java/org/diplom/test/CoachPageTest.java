@@ -1,5 +1,7 @@
 package org.diplom.test;
 
+import org.diplom.entities.Entity;
+import org.diplom.model.User;
 import org.diplom.page.CoachPage;
 import org.diplom.service.CoachPageService;
 import org.diplom.service.LoginPageService;
@@ -27,8 +29,9 @@ public class CoachPageTest extends BaseTest {
     @Test(retryAnalyzer = Retry.class)
     public void FreeTrialTest() {
         if (!loginPageService.isLogged()) {
-         loginPageService.login();
-      }
+            User name = Entity.getUserValid();
+            loginPageService.login(name.getName(), name.getPassword());
+        }
         CoachPage coachPage = coachPageService.openCoachPage();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("coach"));
         coachPage.clickOnFreeTrialButton();

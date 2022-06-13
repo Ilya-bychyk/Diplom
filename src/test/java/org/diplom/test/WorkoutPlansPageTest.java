@@ -1,5 +1,7 @@
 package org.diplom.test;
 
+import org.diplom.entities.Entity;
+import org.diplom.model.User;
 import org.diplom.page.WorkoutPlansPage;
 import org.diplom.service.LoginPageService;
 import org.diplom.service.WorkoutPlansPageService;
@@ -25,7 +27,8 @@ public class WorkoutPlansPageTest extends BaseTest {
 
     @Test(priority = 1)
     public void RoutineNameCheckboxTest() {
-        loginPageService.login();
+        User name = Entity.getUserValid();
+        loginPageService.login(name.getName(), name.getPassword());
         WorkoutPlansPage workoutPlansPage = workoutPlansPageService.openWorkoutPage();
         new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.urlContains("routines"));
         boolean isCheckboxSelected = workoutPlansPage.checkboxVerify();

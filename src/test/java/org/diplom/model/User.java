@@ -1,7 +1,11 @@
 package org.diplom.model;
 
-public class User {
+import lombok.Builder;
+import lombok.Data;
 
-    public final static String name = "Ilya_Bychyk";
-    public final static  String password = "Aa11@234";
+@Data
+@Builder
+public class User {
+    private String name;
+    private String password;
 }

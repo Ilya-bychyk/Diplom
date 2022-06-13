@@ -1,5 +1,6 @@
 package org.diplom.page;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,39 +26,40 @@ public class MyJefitPage extends BasePage {
     @FindBy(xpath = "//a[contains( text(),'Elite')]")
     private WebElement EliteButton;
 
-    public MyJefitPage clickOnExerciseGuideButton() {
+    @Step("Click on button Exercise Guide")
+    public void clickOnExerciseGuideButton() {
         log.info("Click on button Exercise Guide");
         ExerciseGuideButton.click();
-        return this;
     }
 
-    public MyJefitPage clickOnEliteButton() {
+    @Step("Click on button Elite")
+    public void clickOnEliteButton() {
         log.info("Click on button Elite");
         EliteButton.click();
-        return this;
     }
 
-    public MyJefitPage clickMyRoutineButton() {
+    @Step("Click on button My Routine")
+    public void clickMyRoutineButton() {
         log.info("Click on button My Routine");
         MyRoutineButton.click();
-        return this;
     }
 
-    public MyJefitPage clickMyLogsButton() {
+    @Step("Click on button My Logs")
+    public void clickMyLogsButton() {
         log.info("Click on button My Logs");
         MyLogsButton.click();
-        return this;
     }
 
+    @Step("Click on button Workout Plans")
     public MyJefitPage clickWorkoutPlansButton() {
         log.info("Click on button Workout Plans");
         WorkoutPlansButton.click();
         return this;
     }
 
+    @Step("Getting url of current page")
     public String getCurrentUrl() {
         log.info("Getting url of current page");
         return driver.getCurrentUrl();
     }
-
 }
