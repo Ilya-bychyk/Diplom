@@ -19,7 +19,7 @@ triggers {
                 git 'https://github.com/Ilya-bychyk/Diplom.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml clean test"
+                sh "mvn -Dmaven.test.failure.ignore=true -DnameValid=${nameValid} _DpasswordValid=${passwordValid} -DnameInvalid=${nameInvalid} -DpasswordInvalid=${passwordInvalid} -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml clean test"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
