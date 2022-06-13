@@ -30,30 +30,35 @@ public class MyJefitPage extends BasePage {
     public void clickOnExerciseGuideButton() {
         log.info("Click on button Exercise Guide");
         ExerciseGuideButton.click();
+        waitContains("exercises");
     }
 
     @Step("Click on button Elite")
     public void clickOnEliteButton() {
         log.info("Click on button Elite");
         EliteButton.click();
+        waitContains("elite");
     }
 
     @Step("Click on button My Routine")
     public void clickMyRoutineButton() {
         log.info("Click on button My Routine");
         MyRoutineButton.click();
+        waitContains("routine-manager");
     }
 
     @Step("Click on button My Logs")
     public void clickMyLogsButton() {
         log.info("Click on button My Logs");
         MyLogsButton.click();
+        waitContains("my-logs");
     }
 
     @Step("Click on button Workout Plans")
     public MyJefitPage clickWorkoutPlansButton() {
         log.info("Click on button Workout Plans");
         WorkoutPlansButton.click();
+        waitContains("routines");
         return this;
     }
 

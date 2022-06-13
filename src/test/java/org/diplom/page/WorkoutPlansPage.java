@@ -29,6 +29,7 @@ public class WorkoutPlansPage extends BasePage {
     public WorkoutPlansPage openPage(String url) {
         log.info("Open Page Workout Plans");
         driver.get(url);
+        waitContains("routines");
         return this;
     }
 

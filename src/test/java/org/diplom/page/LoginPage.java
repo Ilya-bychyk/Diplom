@@ -8,13 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 //import  org.diplom.utils.StringConstants.URL_LOGIN_PAGE;
 @Log4j2
 public class LoginPage extends BasePage {
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
-    boolean checkboxIsSelected = true;
 
     @FindBy(xpath = "//input[@id='navbar_username']")
     private WebElement username;
@@ -41,7 +41,7 @@ public class LoginPage extends BasePage {
     @Step("Fill username Field")
     public LoginPage fillInUsername(String userName) {
         log.info("Enter Username");
-        new WebDriverWait(driver, Duration.ofMillis(20000L)).until(ExpectedConditions.elementToBeClickable(username));
+        waitElementToBeClickable(username);
         username.clear();
         username.sendKeys(userName);
         return this;
@@ -64,9 +64,7 @@ public class LoginPage extends BasePage {
     @Step("Click checkbox Remember me")
     public LoginPage clickCheckbox() {
         log.info("Deselect checkbox Remember me");
-        if (checkboxIsSelected) {
-            checkbox.click();
-        }
+        checkbox.click();
         return this;
     }
 }
