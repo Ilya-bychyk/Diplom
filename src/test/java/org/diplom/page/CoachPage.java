@@ -14,8 +14,9 @@ public class CoachPage extends BasePage {
     @Step("Click on Free Trial button")
     public void clickOnFreeTrialButton() {
         log.info("Click on Free Trial button");
-        freeTrialButton.click();
         //waitContainsXpath("//a[@class='elementor-button-link elementor-button elementor-size-sm'][1]");
+        freeTrialButton.click();
+
 
     }
 
