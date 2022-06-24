@@ -14,8 +14,9 @@ public class CoachPage extends BasePage {
     @Step("Click on Free Trial button")
     public void clickOnFreeTrialButton() {
         log.info("Click on Free Trial button");
+        waitContainsXpath("//button[@id='submit-btn']");
         freeTrialButton.click();
-        waitElementToBeClickable((WebElement) By.xpath("//button[@id='submit-btn']"));
+        //waitElementToBeClickable((WebElement) By.xpath("//button[@id='submit-btn']"));
     }
 
     @Step("Open Coach Page")
