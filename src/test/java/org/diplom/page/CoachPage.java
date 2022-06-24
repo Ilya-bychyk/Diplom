@@ -8,13 +8,13 @@ import org.openqa.selenium.support.FindBy;
 
 @Log4j2
 public class CoachPage extends BasePage {
-    @FindBy (xpath = "//span[contains( text(),'14-DAY')][1]")
+    @FindBy (xpath = "//a[@class='elementor-button-link elementor-button elementor-size-sm'][1]")
     private WebElement freeTrialButton;
 
     @Step("Click on Free Trial button")
     public void clickOnFreeTrialButton() {
         log.info("Click on Free Trial button");
-        waitContainsXpath("//button[@id='submit-btn'][1]");
+        waitContainsXpath("//a[@class='elementor-button-link elementor-button elementor-size-sm'][1]");
         freeTrialButton.click();
         //waitElementToBeClickable((WebElement) By.xpath("//button[@id='submit-btn']"));
     }
