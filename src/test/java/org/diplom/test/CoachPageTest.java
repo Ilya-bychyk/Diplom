@@ -35,7 +35,7 @@ public class CoachPageTest extends BaseTest {
         CoachPage coachPage = coachPageService.openCoachPage();
         coachPage.clickOnFreeTrialButton();
         String actualCoachPageUrl = coachPage.getCurrentUrl();
-        String expectedCoachPageUrl = "https://www.jefit.com/elite/checkout.php?coach";
+        String expectedCoachPageUrl = "https://www.jefit.com/elite/checkout.php?";   //coach
         Assert.assertEquals(actualCoachPageUrl, expectedCoachPageUrl, "You didn't reach right page!");
     }
 }
