@@ -16,6 +16,7 @@ public class CoachPage extends BasePage {
         log.info("Click on Free Trial button");
         waitContainsXpath("(//span[contains(text(), 'START 14-DAY FREE TRIAL')])[1]");
         freeTrialButton.click();
+        waitContains("checkout.php?coach");
 
     }
 
@@ -23,7 +24,7 @@ public class CoachPage extends BasePage {
     public CoachPage openPage(String url) {
         log.info("Open Coach Page");
         driver.get(url);
-        waitContains("checkout.php?coach");
+        waitContains("jefit.com/coach");
         return this;
     }
 
