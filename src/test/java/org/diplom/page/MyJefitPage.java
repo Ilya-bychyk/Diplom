@@ -29,7 +29,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click on button Exercise Guide")
     public void clickOnExerciseGuideButton() {
         log.info("Click on button Exercise Guide");
-        waitContainsXpath("//a[contains( text(),'Elite')]");
+        //waitContainsXpath("//a[contains( text(),'Elite')]");
         ExerciseGuideButton.click();
         waitContains("exercises");
     }
@@ -37,7 +37,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click on button Elite")
     public void clickOnEliteButton() {
         log.info("Click on button Elite");
-        waitContainsXpath("//a[contains( text(),'Elite')]");
+        //waitContainsXpath("//a[contains( text(),'Elite')]");
         EliteButton.click();
         waitContains("elite");
     }
@@ -45,7 +45,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click on button My Routine")
     public void clickMyRoutineButton() {
         log.info("Click on button My Routine");
-        waitContainsXpath("//a[contains( text(),'My Routines')]");
+        //waitContainsXpath("//a[contains( text(),'My Routines')]");
         MyRoutineButton.click();
         waitContains("routine-manager");
     }
@@ -53,7 +53,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click on button My Logs")
     public void clickMyLogsButton() {
         log.info("Click on button My Logs");
-        waitContainsXpath("//a[contains( text(),'My Logs')]");
+        //waitContainsXpath("//a[contains( text(),'My Logs')]");
         MyLogsButton.click();
         waitContains("my-logs");
     }
@@ -61,7 +61,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click on button Workout Plans")
     public MyJefitPage clickWorkoutPlansButton() {
         log.info("Click on button Workout Plans");
-        waitContainsXpath("//a[contains( text(),'Workout Plans')]");
+        //waitContainsXpath("//a[contains( text(),'Workout Plans')]");
         WorkoutPlansButton.click();
         waitContains("routines");
         return this;
