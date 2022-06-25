@@ -21,7 +21,7 @@ public class MyJefitPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test (priority = 3)
+    @Test (priority = 2)
     public void WorkoutPlansTest() {
         myJefitPage.clickWorkoutPlansButton().clickWorkoutPlansButton();
         String actualUrlOfWorkoutPlans = myJefitPage.getCurrentUrl();
@@ -30,7 +30,7 @@ public class MyJefitPageTest extends BaseTest {
 
     }
 
-    @Test (priority = 2)
+    @Test (priority = 3)
     public void MyRoutinesTest() {
         myJefitPage.clickMyRoutineButton();
         String actualUrlOfMyRoutines = myJefitPage.getCurrentUrl();
