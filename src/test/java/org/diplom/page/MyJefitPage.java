@@ -67,6 +67,7 @@ public class MyJefitPage extends BasePage {
         return this;
     }
 
+
     @Step("Getting url of current page")
     public String getCurrentUrl() {
         log.info("Getting url of current page");
