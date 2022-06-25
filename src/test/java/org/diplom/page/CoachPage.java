@@ -23,7 +23,7 @@ public class CoachPage extends BasePage {
     public CoachPage openPage(String url) {
         log.info("Open Coach Page");
         driver.get(url);
-        waitContains("coach");
+        waitContains("checkout.php?coach");
         return this;
     }
 
