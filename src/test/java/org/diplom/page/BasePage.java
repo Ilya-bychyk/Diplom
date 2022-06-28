@@ -22,6 +22,7 @@ public abstract class BasePage {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.visibilityOf(element));
     }
 
+
     protected void waitElementToBeClickable(WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.elementToBeClickable(element));
     }
